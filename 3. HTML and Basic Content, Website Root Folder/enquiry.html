@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Computer Solutions | Enquiry</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Website Header -->
+    <header>
+        <!-- NovaTech Logo -->
+<img src="images/novatech-logo.png"
+     alt="NovaTech Computer Solutions logo"
+     width="180">
+
+        <h1>NovaTech Computer Solutions</h1>
+        <p>Technology That Works for You</p>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="services.html">Services</a>
+        <a href="enquiry.html">Enquiry</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Main Page Content -->
+    <main>
+
+        <section>
+            <h2>Make an Enquiry</h2>
+
+            <p>
+                Complete the form below if you would like more information
+                about our products or services, require technical assistance,
+                or would like to request a quotation.
+            </p>
+
+            <!-- Customer Enquiry Form -->
+            <form action="#" method="post">
+
+                <p>
+                    <label for="fullname">Full Name:</label><br>
+                    <input type="text" id="fullname" name="fullname" required>
+                </p>
+
+                <p>
+                    <label for="email">Email Address:</label><br>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="phone">Phone Number:</label><br>
+                    <input type="tel" id="phone" name="phone">
+                </p>
+
+                <p>
+                    <label for="enquiry-type">Type of Enquiry:</label><br>
+
+                    <select id="enquiry-type" name="enquiry-type" required>
+                        <option value="">-- Select an option --</option>
+                        <option value="product">Product Enquiry</option>
+                        <option value="service">Service Enquiry</option>
+                        <option value="quotation">Request a Quotation</option>
+                        <option value="support">Technical Support</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="message">Enquiry Details:</label><br>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        cols="40"
+                        required>
+                    </textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit Enquiry">
+                    <input type="reset" value="Clear Form">
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- Website Footer -->
+    <footer>
+        <p>&copy; 2026 NovaTech Computer Solutions (Pty) Ltd.</p>
+    </footer>
+
+</body>
+
+</html>
