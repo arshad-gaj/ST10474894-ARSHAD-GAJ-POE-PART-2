@@ -57,14 +57,23 @@
 
 
         <!-- Laptop Product Image -->
-<img src="images/laptop-medium.jpg"
-     srcset="images/laptop-small.jpg 400w,
-             images/laptop-medium.jpg 800w,
-             images/laptop.jpg 1200w"
-     sizes="(max-width: 600px) 92vw,
-            (max-width: 900px) 45vw,
-            30vw"
-     alt="Laptop computer available from NovaTech Computer Solutions">
+<button
+    type="button"
+    class="gallery-trigger"
+    data-full="images/laptop.jpg"
+    data-caption="Laptop computer available from NovaTech Computer Solutions"
+    aria-label="Open larger view of laptop computer">
+
+    <img
+        src="images/laptop-medium.jpg"
+        srcset="images/laptop-small.jpg 400w,
+                images/laptop-medium.jpg 800w,
+                images/laptop.jpg 1200w"
+        sizes="(max-width: 600px) 92vw,
+               (max-width: 900px) 45vw,
+               30vw"
+        alt="Laptop computer available from NovaTech Computer Solutions">
+</button>
 
 
             <ul>
@@ -84,14 +93,23 @@
             </p>
 
             <!-- Desktop Computer Image -->
-<img src="images/desktop-medium.jpg"
-     srcset="images/desktop-small.jpg 400w,
-             images/desktop-medium.jpg 800w,
-             images/desktop.jpg 1200w"
-     sizes="(max-width: 600px) 92vw,
-            (max-width: 900px) 45vw,
-            30vw"
-     alt="Desktop computer representing NovaTech desktop products">
+<button
+    type="button"
+    class="gallery-trigger"
+    data-full="images/desktop.jpg"
+    data-caption="Desktop computer representing NovaTech desktop products"
+    aria-label="Open larger view of desktop computer">
+
+    <img
+        src="images/desktop-medium.jpg"
+        srcset="images/desktop-small.jpg 400w,
+                images/desktop-medium.jpg 800w,
+                images/desktop.jpg 1200w"
+        sizes="(max-width: 600px) 92vw,
+               (max-width: 900px) 45vw,
+               30vw"
+        alt="Desktop computer representing NovaTech desktop products">
+</button>
     
 
             <ul>
@@ -110,15 +128,23 @@
                 peripherals.
             </p>
 
-            <!-- Computer Accessories Image -->
-<img src="images/accessories-medium.jpg"
-     srcset="images/accessories-small.jpg 400w,
-             images/accessories-medium.jpg 800w,
-             images/accessories.jpg 2048w"
-     sizes="(max-width: 600px) 92vw,
-            (max-width: 900px) 45vw,
-            30vw"
-     alt="Computer accessories available from NovaTech Computer Solutions">
+          <button
+    type="button"
+    class="gallery-trigger"
+    data-full="images/accessories.jpg"
+    data-caption="Computer accessories available from NovaTech Computer Solutions"
+    aria-label="Open larger view of computer accessories">
+
+    <img
+        src="images/accessories-medium.jpg"
+        srcset="images/accessories-small.jpg 400w,
+                images/accessories-medium.jpg 800w,
+                images/accessories.jpg 2048w"
+        sizes="(max-width: 600px) 92vw,
+               (max-width: 900px) 45vw,
+               30vw"
+        alt="Computer accessories available from NovaTech Computer Solutions">
+</button>
 
      
             <ul>
@@ -148,7 +174,50 @@
     <footer>
         <p>&copy; 2026 NovaTech Computer Solutions (Pty) Ltd.</p>
     </footer>
+<!-- POE Part 3 - Product Gallery Lightbox -->
+<div
+    id="product-lightbox"
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="lightbox-caption"
+    hidden>
 
+    <div class="lightbox-content">
+
+        <button
+            type="button"
+            class="lightbox-close"
+            aria-label="Close image viewer">
+            &times;
+        </button>
+
+        <button
+            type="button"
+            class="lightbox-nav lightbox-prev"
+            aria-label="View previous image">
+            &#10094;
+        </button>
+
+        <figure class="lightbox-figure">
+            <img
+                id="lightbox-image"
+                src=""
+                alt="">
+
+            <figcaption id="lightbox-caption"></figcaption>
+        </figure>
+
+        <button
+            type="button"
+            class="lightbox-nav lightbox-next"
+            aria-label="View next image">
+            &#10095;
+        </button>
+
+    </div>
+</div>
 </body>
 
 </html>

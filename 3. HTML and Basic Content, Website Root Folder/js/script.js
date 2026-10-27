@@ -99,3 +99,109 @@ serviceMarker.bindPopup(
     serviceMarker.openPopup();
 }
 }
+// =================================
+// Product Gallery Lightbox
+// =================================
+
+const galleryTriggers = Array.from(
+    document.querySelectorAll(".gallery-trigger")
+);
+
+const lightbox = document.getElementById("product-lightbox");
+const lightboxImage = document.getElementById("lightbox-image");
+const lightboxCaption = document.getElementById("lightbox-caption");
+const lightboxClose = document.querySelector(".lightbox-close");
+const lightboxPrevious = document.querySelector(".lightbox-prev");
+const lightboxNext = document.querySelector(".lightbox-next");
+
+let currentImageIndex = 0;
+let lastFocusedElement = null;
+
+if (
+    galleryTriggers.length > 0 &&
+    lightbox &&
+    lightboxImage &&
+    lightboxCaption &&
+    lightboxClose &&
+    lightboxPrevious &&
+    lightboxNext
+) {
+    const updateLightbox = (index) => {
+        currentImageIndex =
+            (index + galleryTriggers.length) % galleryTriggers.length;
+
+        const currentTrigger = galleryTriggers[currentImageIndex];
+        const thumbnail = currentTrigger.querySelector("img");
+
+        lightboxImage.src = currentTrigger.dataset.full;
+        lightboxImage.alt = thumbnail ? thumbnail.alt : "";
+        lightboxCaption.textContent =
+            currentTrigger.dataset.caption || "";
+    };
+
+    const openLightbox = (index) => {
+        lastFocusedElement = document.activeElement;
+
+        updateLightbox(index);
+
+        lightbox.hidden = false;
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+
+        lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+        lightbox.hidden = true;
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lightbox-open");
+
+        lightboxImage.src = "";
+
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+    };
+
+    const showPreviousImage = () => {
+        updateLightbox(currentImageIndex - 1);
+    };
+
+    const showNextImage = () => {
+        updateLightbox(currentImageIndex + 1);
+    };
+
+    galleryTriggers.forEach((trigger, index) => {
+        trigger.addEventListener("click", () => {
+            openLightbox(index);
+        });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxPrevious.addEventListener("click", showPreviousImage);
+    lightboxNext.addEventListener("click", showNextImage);
+
+    lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (lightbox.hidden) {
+            return;
+        }
+
+        if (event.key === "Escape") {
+            closeLightbox();
+        }
+
+        if (event.key === "ArrowLeft") {
+            showPreviousImage();
+        }
+
+        if (event.key === "ArrowRight") {
+            showNextImage();
+        }
+    });
+}
