@@ -769,3 +769,123 @@ body.lightbox-open {
         font-size: 0.9rem;
     }
 }
+/* ================================
+   POE Part 3 - Dynamic Product Search
+   ================================ */
+
+.product-search-section {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f5f6f8;
+    border-left: 5px solid #f5a623;
+    border-radius: 8px;
+}
+
+.product-search-section h2 {
+    margin-bottom: 0.8rem;
+    color: #0b2545;
+}
+
+.product-search-controls {
+    margin-top: 1.2rem;
+}
+
+.product-search-controls label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #0b2545;
+}
+
+.product-search-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: stretch;
+}
+
+#product-search {
+    flex: 1;
+    min-width: 0;
+    padding: 0.85rem 1rem;
+
+    border: 2px solid #173b67;
+    border-radius: 6px;
+
+    font: inherit;
+    background-color: #ffffff;
+    color: #222222;
+}
+
+#product-search:focus {
+    outline: 3px solid #f5a623;
+    outline-offset: 2px;
+}
+
+#clear-product-search {
+    padding: 0.85rem 1.3rem;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: #173b67;
+    color: #ffffff;
+
+    font: inherit;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#clear-product-search:hover {
+    background-color: #0b2545;
+}
+
+#clear-product-search:focus-visible {
+    outline: 3px solid #f5a623;
+    outline-offset: 3px;
+}
+
+.product-search-status {
+    margin-top: 0.8rem;
+    margin-bottom: 0;
+
+    font-weight: bold;
+    color: #173b67;
+}
+
+.no-product-results {
+    margin-top: 1rem;
+    padding: 1rem;
+
+    border-radius: 6px;
+
+    background-color: #fff3d6;
+    color: #7a4a00;
+
+    font-weight: bold;
+}
+
+/* Smooth visual feedback when cards are filtered */
+.product-card {
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+@media (max-width: 600px) {
+    .product-search-section {
+        padding: 1.3rem;
+    }
+
+    .product-search-row {
+        flex-direction: column;
+    }
+
+    #clear-product-search {
+        width: 100%;
+    }
+}
+/* Ensure filtered product cards are completely hidden */
+.product-card[hidden] {
+    display: none !important;
+}

@@ -205,3 +205,86 @@ if (
         }
     });
 }
+// =================================
+// Dynamic Product Search and Filter
+// =================================
+
+const productSearchInput = document.getElementById("product-search");
+const clearProductSearch = document.getElementById("clear-product-search");
+const productSearchStatus = document.getElementById("product-search-status");
+const noProductResults = document.getElementById("no-product-results");
+const searchableProductCards = Array.from(
+    document.querySelectorAll(".products-grid .product-card")
+);
+
+if (
+    productSearchInput &&
+    clearProductSearch &&
+    productSearchStatus &&
+    noProductResults &&
+    searchableProductCards.length > 0
+) {
+    const filterProducts = () => {
+        const searchTerm = productSearchInput.value
+            .trim()
+            .toLowerCase();
+
+        const searchWords = searchTerm
+            .split(/\s+/)
+            .filter(Boolean);
+
+        let visibleProducts = 0;
+
+        searchableProductCards.forEach((card) => {
+            const visibleText = card.textContent.toLowerCase();
+            const extraKeywords = (
+                card.dataset.search || ""
+            ).toLowerCase();
+
+            const searchableContent =
+                `${visibleText} ${extraKeywords}`;
+
+            const matchesSearch =
+                searchWords.length === 0 ||
+                searchWords.every((word) =>
+                    searchableContent.includes(word)
+                );
+
+            card.hidden = !matchesSearch;
+
+            if (matchesSearch) {
+                visibleProducts++;
+            }
+        });
+
+        if (searchTerm === "") {
+            productSearchStatus.textContent =
+                `Showing all ${searchableProductCards.length} product categories.`;
+        } else if (visibleProducts === 1) {
+            productSearchStatus.textContent =
+                `1 product category matches "${productSearchInput.value.trim()}".`;
+        } else {
+            productSearchStatus.textContent =
+                `${visibleProducts} product categories match "${productSearchInput.value.trim()}".`;
+        }
+
+        noProductResults.hidden = visibleProducts !== 0;
+    };
+
+    productSearchInput.addEventListener("input", filterProducts);
+
+    clearProductSearch.addEventListener("click", () => {
+        productSearchInput.value = "";
+        filterProducts();
+        productSearchInput.focus();
+    });
+
+    productSearchInput.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && productSearchInput.value !== "") {
+            productSearchInput.value = "";
+            filterProducts();
+        }
+    });
+
+    filterProducts();
+}

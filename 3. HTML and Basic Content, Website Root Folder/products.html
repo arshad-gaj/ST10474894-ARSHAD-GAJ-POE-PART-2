@@ -45,9 +45,58 @@
                 home users, schools and small businesses.
             </p>
         </section>
+        <!-- POE Part 3 - Dynamic Product Search -->
+<section class="product-search-section" aria-labelledby="product-search-heading">
+
+    <h2 id="product-search-heading">Find a Product</h2>
+
+    <p>
+        Search the NovaTech product range by entering a product name,
+        category or feature.
+    </p>
+
+    <div class="product-search-controls">
+
+        <label for="product-search">Search products</label>
+
+        <div class="product-search-row">
+            <input
+                type="search"
+                id="product-search"
+                name="product-search"
+                placeholder="e.g. laptop, gaming, keyboard..."
+                autocomplete="off"
+                aria-describedby="product-search-status">
+
+            <button
+                type="button"
+                id="clear-product-search">
+                Clear
+            </button>
+        </div>
+
+        <p
+            id="product-search-status"
+            class="product-search-status"
+            aria-live="polite">
+            Showing all 3 product categories.
+        </p>
+
+    </div>
+
+    <p
+        id="no-product-results"
+        class="no-product-results"
+        hidden>
+        No matching products were found. Try another search term.
+    </p>
+
+</section>
 <div class="products-grid">
 
-        <section class="product-card">
+      <section
+    class="product-card"
+    data-search="laptop laptops student students business performance productivity everyday study studying">
             <h2>Laptops</h2>
 
             <p>
@@ -84,7 +133,9 @@
             </ul>
         </section>
 
-        <section class="product-card">
+      <section
+    class="product-card"
+    data-search="desktop desktops computer computers pc pcs home office educational custom custom-built gaming">
             <h2>Desktop Computers</h2>
 
             <p>
@@ -120,7 +171,9 @@
             </ul>
         </section>
 
-        <section  class="product-card">
+       <section
+    class="product-card"
+    data-search="accessories accessory peripherals keyboard keyboards mouse mice monitor monitors headset headsets usb storage laptop bags chargers cables">
             <h2>Computer Accessories</h2>
 
             <p>
