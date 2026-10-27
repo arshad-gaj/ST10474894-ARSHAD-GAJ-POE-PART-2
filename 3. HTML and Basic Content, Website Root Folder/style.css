@@ -521,3 +521,42 @@ main a:active {
     content: "-";
     transform: rotate(180deg);
 }
+/* ================================
+   POE Part 3 - Interactive Map
+   ================================ */
+
+.location-section {
+    margin-top: 2rem;
+}
+
+.location-section h2 {
+    margin-bottom: 0.8rem;
+}
+
+#map {
+    width: 100%;
+    height: 420px;
+    margin-top: 1rem;
+    border: 2px solid #173b67;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-note {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    color: #555555;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    #map {
+        height: 280px;
+    }
+}
