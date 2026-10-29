@@ -288,3 +288,88 @@ if (
 
     filterProducts();
 }
+// =================================
+// Enquiry Form Validation
+// =================================
+
+const enquiryForm = document.getElementById("enquiry-form");
+const enquiryStatus = document.getElementById("enquiry-status");
+
+if (enquiryForm && enquiryStatus) {
+    const fullName = enquiryForm.elements.namedItem("fullname");
+    const phone = enquiryForm.elements.namedItem("phone");
+    const message = enquiryForm.elements.namedItem("message");
+    const fields = Array.from(
+        enquiryForm.querySelectorAll("input, select, textarea")
+    );
+
+    // Run our checks before displaying browser validation messages.
+    enquiryForm.noValidate = true;
+
+    const validateField = (field) => {
+        field.setCustomValidity("");
+
+        if (field === fullName && field.value.trim().length < 2) {
+            field.setCustomValidity(
+                "Please enter your name using at least 2 characters."
+            );
+        }
+
+        if (field === phone && field.value.trim() !== "") {
+            const phoneNumber = field.value.replace(/[\s()-]/g, "");
+
+            if (!/^(0[1-9]\d{8}|\+27[1-9]\d{8})$/.test(phoneNumber)) {
+                field.setCustomValidity(
+                    "Enter a South African number, such as 082 123 4567 or +27 82 123 4567."
+                );
+            }
+        }
+
+        if (field === message && field.value.trim().length < 10) {
+            field.setCustomValidity(
+                "Please describe your enquiry using at least 10 characters, excluding surrounding spaces."
+            );
+        }
+
+        field.setAttribute(
+            "aria-invalid",
+            String(!field.validity.valid)
+        );
+    };
+
+    fields.forEach((field) => {
+        field.addEventListener("input", () => {
+            validateField(field);
+            enquiryStatus.textContent = "";
+        });
+
+        field.addEventListener("blur", () => {
+            validateField(field);
+        });
+    });
+
+    enquiryForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        enquiryStatus.textContent = "";
+
+        fields.forEach(validateField);
+
+        if (!enquiryForm.reportValidity()) {
+            enquiryStatus.textContent =
+                "Please correct the highlighted field and submit again.";
+            return;
+        }
+
+        enquiryStatus.textContent =
+            "Your details have passed validation. No enquiry has been sent.";
+    });
+
+    enquiryForm.addEventListener("reset", () => {
+        enquiryStatus.textContent = "";
+
+        fields.forEach((field) => {
+            field.setCustomValidity("");
+            field.removeAttribute("aria-invalid");
+        });
+    });
+}
