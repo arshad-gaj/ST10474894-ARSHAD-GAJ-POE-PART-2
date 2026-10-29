@@ -360,8 +360,26 @@ if (enquiryForm && enquiryStatus) {
             return;
         }
 
-        enquiryStatus.textContent =
-            "Your details have passed validation. No enquiry has been sent.";
+       const enquiryType =
+    enquiryForm.elements.namedItem("enquiry-type").value;
+
+const responses = {
+    product:
+        "Product pricing and availability depend on the model and specifications. Contact NovaTech with the product name and quantity to confirm stock and pricing.",
+    service:
+        "Service costs depend on the work required and the condition of your computer. Contact NovaTech to arrange an assessment and confirm appointment availability.",
+    quotation:
+        "A quotation requires the product or service details, specifications and quantity. Contact NovaTech with these details to request an accurate price.",
+    support:
+        "For technical support, include your device model, operating system and any error message. Do not include passwords. The next step is to contact NovaTech for assistance.",
+    other:
+        "For other enquiries, contact NovaTech with your requirements so the appropriate assistance can be confirmed."
+};
+
+enquiryStatus.textContent =
+    `Thank you, ${fullName.value.trim()}. ${responses[enquiryType]} ` +
+    "This is an on-page guidance response; your details have not been sent. " +
+    "Use the Contact page to get in touch.";
     });
 
     enquiryForm.addEventListener("reset", () => {

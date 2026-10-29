@@ -889,3 +889,14 @@ body.lightbox-open {
 .product-card[hidden] {
     display: none !important;
 }
+/* Enquiry form feedback */
+#enquiry-status:not(:empty) {
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #f5a623;
+    background-color: #f3f6f9;
+    color: #0b2545;
+    font-weight: bold;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
