@@ -455,8 +455,36 @@ if (contactForm && contactStatus) {
             return;
         }
 
-        contactStatus.textContent =
-            "Your details have passed validation. No email has been prepared or sent.";
+      const senderName = contactName.value.trim();
+const senderEmail =
+    contactForm.elements.namedItem("email").value.trim();
+const messageType =
+    contactForm.elements.namedItem("message-type").value;
+
+const recipient = "info@novatechsolutions.co.za";
+const subject = `NovaTech Website: ${messageType}`;
+
+const emailBody = [
+    `Name: ${senderName}`,
+    `Email: ${senderEmail}`,
+    `Message Type: ${messageType}`,
+    "",
+    "Message:",
+    contactMessage.value.trim()
+].join("\r\n");
+
+const emailLink =
+    `mailto:${recipient}` +
+    `?subject=${encodeURIComponent(subject)}` +
+    `&body=${encodeURIComponent(emailBody)}`;
+
+contactStatus.textContent =
+    "Your email is ready. If your email application opens, " +
+    "review the details and click Send there. " +
+    "If nothing opens, configure a default email application " +
+    `or email ${recipient} manually.`;
+
+window.location.href = emailLink;
     });
 
     contactForm.addEventListener("reset", () => {
