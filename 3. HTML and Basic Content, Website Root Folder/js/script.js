@@ -391,3 +391,80 @@ enquiryStatus.textContent =
         });
     });
 }
+// =================================
+// Contact Form Validation
+// =================================
+
+const contactForm = document.getElementById("contact-form");
+const contactStatus = document.getElementById("contact-status");
+
+if (contactForm && contactStatus) {
+    const contactName = contactForm.elements.namedItem("fullname");
+    const contactMessage = contactForm.elements.namedItem("message");
+
+    const contactFields = Array.from(
+        contactForm.querySelectorAll("input, select, textarea")
+    );
+
+    contactForm.noValidate = true;
+
+    const validateContactField = (field) => {
+        field.setCustomValidity("");
+
+        if (field === contactName && field.value.trim().length < 2) {
+            field.setCustomValidity(
+                "Please enter your name using at least 2 characters."
+            );
+        }
+
+        if (
+            field === contactMessage &&
+            field.value.trim().length < 10
+        ) {
+            field.setCustomValidity(
+                "Please enter at least 10 characters, excluding surrounding spaces."
+            );
+        }
+
+        field.setAttribute(
+            "aria-invalid",
+            String(!field.validity.valid)
+        );
+    };
+
+    contactFields.forEach((field) => {
+        field.addEventListener("input", () => {
+            validateContactField(field);
+            contactStatus.textContent = "";
+        });
+
+        field.addEventListener("blur", () => {
+            validateContactField(field);
+        });
+    });
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        contactStatus.textContent = "";
+
+        contactFields.forEach(validateContactField);
+
+        if (!contactForm.reportValidity()) {
+            contactStatus.textContent =
+                "Please correct the highlighted field and try again.";
+            return;
+        }
+
+        contactStatus.textContent =
+            "Your details have passed validation. No email has been prepared or sent.";
+    });
+
+    contactForm.addEventListener("reset", () => {
+        contactStatus.textContent = "";
+
+        contactFields.forEach((field) => {
+            field.setCustomValidity("");
+            field.removeAttribute("aria-invalid");
+        });
+    });
+}
