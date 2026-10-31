@@ -348,7 +348,7 @@ if (enquiryForm && enquiryStatus) {
         });
     });
 
-    enquiryForm.addEventListener("submit", (event) => {
+    enquiryForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         enquiryStatus.textContent = "";
 
@@ -376,10 +376,54 @@ const responses = {
         "For other enquiries, contact NovaTech with your requirements so the appropriate assistance can be confirmed."
 };
 
-enquiryStatus.textContent =
-    `Thank you, ${fullName.value.trim()}. ${responses[enquiryType]} ` +
-    "This is an on-page guidance response; your details have not been sent. " +
-    "Use the Contact page to get in touch.";
+if (enquiryForm.getAttribute("aria-busy") === "true") {
+    return;
+}
+
+const submittedName = fullName.value.trim();
+const formData = new FormData(enquiryForm);
+const requestBody = new URLSearchParams(formData).toString();
+
+const controls = Array.from(enquiryForm.elements);
+const previousDisabledStates = controls.map(
+    (control) => control.disabled
+);
+
+enquiryForm.setAttribute("aria-busy", "true");
+controls.forEach((control) => {
+    control.disabled = true;
+});
+
+enquiryStatus.textContent = "Sending your enquiry…";
+
+try {
+    const response = await fetch("/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: requestBody
+    });
+
+    if (!response.ok) {
+        throw new Error("Enquiry submission failed.");
+    }
+
+    enquiryStatus.textContent =
+        `Thank you, ${submittedName}. Your enquiry has been submitted. ` +
+        responses[enquiryType];
+} catch (error) {
+    enquiryStatus.textContent =
+        "We could not confirm your submission. Your details are still " +
+        "in the form. Please check your connection and try again, " +
+        "or use the Contact page.";
+} finally {
+    controls.forEach((control, index) => {
+        control.disabled = previousDisabledStates[index];
+    });
+
+    enquiryForm.removeAttribute("aria-busy");
+}
     });
 
     enquiryForm.addEventListener("reset", () => {
