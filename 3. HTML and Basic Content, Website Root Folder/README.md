@@ -156,6 +156,22 @@ The website was tested using browser developer tools at different viewport sizes
 
 ## Changelog
 
+### Improvements to the Part 2 Website
+
+The existing Part 2 website was improved during Part 3 development:
+
+- Improved the enquiry form with clearer instructions, autofill
+  attributes, input length limits and optional phone-number guidance.
+- Extended basic required-field checks with JavaScript validation
+  and helpful error messages.
+- Added accessible enquiry feedback and responses relevant to the
+  selected enquiry type.
+- Added a separate contact form with validation and email preparation.
+- Updated the README to reflect the implemented JavaScript features,
+  current project structure and desktop/mobile testing results.
+
+Implementation details and commit references are recorded below.
+
 ### Part 3 Development Changes
 
 #### Interactive Features
