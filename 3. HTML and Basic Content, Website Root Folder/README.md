@@ -301,3 +301,33 @@ Implementation details and commit references are recorded below.
 **Mobile - 412 px**
 
 ![NovaTech mobile responsive test](screenshots/mobile/mobile-home.png) 
+
+## References
+
+### Existing Content and Image Sources
+
+MDN Web Docs. (n.d.). *HTML: HyperText Markup Language*. [Online].
+Available at: https://developer.mozilla.org/en-US/docs/Web/HTML
+[Accessed 12 August 2026].
+
+Unsplash. (2026). *Unsplash: Beautiful free images and pictures*. [Online].
+Available at: https://unsplash.com/
+[Accessed 12 August 2026].
+
+### Part 3 Technical Documentation
+
+Leaflet. (n.d.). *Leaflet API reference*. [Online].
+Available at: https://leafletjs.com/reference.html
+[Accessed 31 October 2026].
+
+MDN Web Docs. (n.d.). *Client-side form validation*. [Online].
+Available at: https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Form_validation
+[Accessed 31 October 2026].
+
+MDN Web Docs. (n.d.). *Using the Fetch API*. [Online].
+Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+[Accessed 31 October 2026].
+
+Netlify. (n.d.). *Forms setup*. [Online].
+Available at: https://docs.netlify.com/manage/forms/setup/
+[Accessed 31 October 2026].
