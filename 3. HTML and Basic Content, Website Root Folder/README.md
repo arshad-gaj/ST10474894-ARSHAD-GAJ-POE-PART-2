@@ -6,6 +6,17 @@ NovaTech Computer Solutions is a fictional information technology business based
 
 The purpose of the website is to provide customers with clear and accessible information about NovaTech Computer Solutions, its computer products, IT services and methods of contacting the business.
 
+## Live Website and Repository
+
+- **Live website:** https://superlative-yeot-61f0c9.netlify.app/
+- **GitHub repository:** https://github.com/arshad-gaj/ST10474894-ARSHAD-GAJ-POE-PART-2
+- **Part 3 branch:** `poe-part3`
+- **Hosting:** Netlify, connected to the `poe-part3` branch.
+- **Publish directory:** `3. HTML and Basic Content, Website Root Folder`
+
+All six website pages were checked in an InPrivate browser window
+and were accessible without a Netlify login.
+
 ## Website Pages
 
 The website consists of six interconnected HTML5 pages:
@@ -19,12 +30,13 @@ The website consists of six interconnected HTML5 pages:
 
 ## Project Structure
 
-The project is organised into separate folders for different website resources:
-
-- `images/` – stores the images used throughout the website.
-- `css/` – stores CSS stylesheets used to style the website.
-- `js/` – reserved for JavaScript files that may be introduced during later development.
-- HTML files are stored in the main website project folder.
+- `images/` – stores website images.
+- `style.css` – the main stylesheet linked by all six pages.
+- `js/script.js` – contains the FAQ accordion, interactive map,
+  gallery lightbox, product search, form validation, enquiry AJAX
+  submission and contact email preparation.
+- `screenshots/` – stores responsive testing evidence.
+- The six HTML pages are stored in the website root folder.
 
 ## Technologies Used
 
@@ -39,6 +51,43 @@ The project currently uses:
 - CSS media queries
 - HTML forms and required-field validation
 - Git and GitHub for version control
+- JavaScript and DOM manipulation
+- Leaflet.js for the interactive map
+- Fetch API for AJAX enquiry submission
+- Netlify Forms for receiving enquiries
+- Netlify for website hosting and deployment
+
+## POE Part 3 – Functionality and SEO
+
+- Added an FAQ accordion to the Services page.
+- Added a Leaflet map showing the Johannesburg service area.
+- Added a product gallery lightbox with captions, previous/next
+  controls, overlay closing and keyboard support.
+- Added product search with keyword filtering, a reset button
+  and a no-results message.
+- Added unique page titles, meta keywords and meta descriptions
+  to all six pages.
+- Audited image alt text and added a default lightbox description.
+- Improved enquiry form controls, instructions and validation.
+- Added enquiry responses based on the selected enquiry type.
+- Connected the enquiry form to Netlify Forms using AJAX.
+  Submission feedback appears without reloading the page.
+  Failed submissions preserve the entered details.
+- Added a separate contact form with validation and email
+  preparation using the visitor's email application.
+- Deployed the website publicly through Netlify from `poe-part3`.
+
+### Form Behaviour
+
+The enquiry form sends submissions to the Netlify Forms dashboard.
+Successful delivery requires the deployed website; opening the
+HTML file directly on a laptop does not provide this service.
+
+The contact form prepares an email containing the validated
+details. The visitor must review and send it using a configured
+email application. The website does not send this email automatically.
+
+NovaTech is a fictional business created for this assignment.
 
 ## Development and Testing
 
@@ -52,6 +101,35 @@ The website was developed using Visual Studio Code and tested in a web browser. 
 - Required-field validation prevents incomplete form submission.
 - Desktop, tablet and mobile layouts respond correctly at different screen sizes.
 
+### Part 3 Testing Results
+
+- Tested the FAQ accordion, map, product lightbox and product
+  search on desktop and mobile layouts.
+- Checked enquiry and contact controls, keyboard navigation,
+  dropdown options and Clear Form buttons.
+- Tested empty required fields, invalid email addresses,
+  whitespace-only names and messages, and short messages.
+- Tested the optional enquiry phone field with blank, valid
+  South African and invalid phone numbers.
+- Checked all five enquiry types for relevant responses.
+- Tested contact email preparation, including the recipient,
+  subject, sender details, message, special characters and line
+  breaks. Email drafts were inspected without sending.
+- Tested local enquiry submission failure: an error message
+  appeared, entered details were retained and controls became
+  available again.
+- Submitted a desktop product enquiry through the live website
+  and confirmed its receipt in Netlify Forms, including the
+  ampersand in the message.
+- Submitted a service enquiry at a 412px mobile viewport and
+  confirmed its receipt in Netlify Forms.
+- Checked that AJAX responses appeared without a page reload
+  and that feedback fitted the mobile layout.
+- Verified that all six deployed pages opened with images and
+  styling in an InPrivate window without a Netlify login.
+
+Mobile checks used browser device emulation.
+
 ## Version Control
 
 GitHub is used to store the project and maintain a record of its development. Commits are used to document significant changes made to the website during the development process.
@@ -61,7 +139,7 @@ GitHub is used to store the project and maintain a record of its development. Co
 **Student:** Arshad Gaj  
 **Student Number:** ST10474894  
 **Module:** WEDE5020 – Web Development (Introduction)  
-**Portfolio:** POE Part 2  
+**Portfolio:** POE Part 3 
 **Year:** 2026
 
 
@@ -78,6 +156,53 @@ The website was tested using browser developer tools at different viewport sizes
 
 ## Changelog
 
+### Part 3 Development Changes
+
+#### Interactive Features
+- Added a responsive FAQ accordion to the Services page.
+- Added a Leaflet map showing the Johannesburg service area
+  and corrected the map tile-loading issue.
+- Added a product image lightbox with captions, previous/next
+  navigation, keyboard controls and mobile styling.
+- Added keyword-based product filtering, reset functionality
+  and a no-results message (`4944513`).
+
+#### Search Engine Optimisation
+- Added unique descriptive titles to all six pages (`916de7b`).
+- Added page-specific meta keywords (`5573a2b`).
+- Added page-specific meta descriptions (`2660e7a`).
+- Audited image alt text and added a default description for
+  the lightbox image (`7865500`).
+
+#### Enquiry Form
+- Improved form controls, autofill attributes, input limits,
+  help text and the accessible feedback area (`bfb7d22`).
+- Added JavaScript validation and clear error feedback,
+  including optional phone-number validation (`1c6af00`).
+- Added responses tailored to the selected enquiry type
+  and responsive feedback styling (`17ad8a4`).
+- Connected the form to Netlify Forms using AJAX, with
+  submission progress, duplicate-click protection and
+  failure recovery (`aacc7fe`).
+- Confirmed desktop and mobile test submissions arrived
+  in the Netlify Forms dashboard.
+
+#### Contact Form
+- Added a separate accessible contact form (`a526a27`).
+- Added validation and error feedback (`6997c95`).
+- Added email preparation containing the validated sender
+  details, message type and full message (`9eb3f90`).
+- Tested email draft contents and special-character handling.
+
+#### Deployment and Documentation
+- Connected Netlify deployment to the `poe-part3` branch.
+- Configured the website root folder as the publish directory.
+- Enabled Netlify form detection.
+- Enabled public access and checked all six pages in an
+  InPrivate browser window.
+- Updated the README with the live URL, technologies,
+  Part 3 features, form behaviour and testing results.
+  
 ### Part 1 Feedback Corrections
 
 - **Goals and Objectives:** Added a separate Objectives section to the project documentation. The original project goals were retained, while clear objectives were added to explain what the NovaTech website is intended to achieve.
@@ -117,8 +242,6 @@ The website was tested using browser developer tools at different viewport sizes
 - Tested the website at desktop, tablet and mobile viewport sizes using browser developer tools.
 - Checked all six pages to confirm that navigation, content, images and layouts display correctly at different screen sizes.
 
-
-## Changelog
 
 ### Part 2 Development
 
