@@ -190,6 +190,10 @@ Implementation details and commit references are recorded below.
 - Audited image alt text and added a default description for
   the lightbox image (`7865500`).
 
+- Added `robots.txt` to allow crawling and point to the sitemap.
+- Added `sitemap.xml` containing the six deployed website page URLs.
+- Opened the sitemap locally in Microsoft Edge and confirmed it displayed without XML parsing errors.
+
 #### Enquiry Form
 - Improved form controls, autofill attributes, input limits,
   help text and the accessible feedback area (`bfb7d22`).
