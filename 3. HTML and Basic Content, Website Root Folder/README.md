@@ -227,6 +227,16 @@ Implementation details and commit references are recorded below.
 - Updated the README with the live URL, technologies,
   Part 3 features, form behaviour and testing results.
   
+  ##### Security and Performance
+
+- Added Netlify response security headers to prevent MIME-type sniffing and website framing.
+- Added a strict referrer policy and disabled unused camera, microphone and geolocation permissions.
+- Confirmed the security headers were applied to the deployed Netlify website.
+- Resized and compressed the NovaTech logo to reduce its download size.
+- Added explicit logo width and height attributes to all six pages to reduce layout shifts.
+- Tested the deployed website with Google PageSpeed Insights.
+- Mobile and desktop achieved 100 for Performance, Accessibility, Best Practices and SEO.
+
 ### Part 1 Feedback Corrections
 
 - **Goals and Objectives:** Added a separate Objectives section to the project documentation. The original project goals were retained, while clear objectives were added to explain what the NovaTech website is intended to achieve.
@@ -339,3 +349,11 @@ Available at: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_F
 Netlify. (n.d.). *Forms setup*. [Online].
 Available at: https://docs.netlify.com/manage/forms/setup/
 [Accessed 31 October 2026].
+
+Netlify. (n.d.). *Custom headers*. [Online].  
+Available at: https://docs.netlify.com/manage/routing/headers/  
+[Accessed 2 November 2026].
+
+Google. (n.d.). *PageSpeed Insights*. [Online].  
+Available at: https://pagespeed.web.dev/  
+[Accessed 2 November 2026].
