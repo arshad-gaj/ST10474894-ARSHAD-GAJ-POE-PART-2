@@ -194,6 +194,9 @@ Implementation details and commit references are recorded below.
 - Added `sitemap.xml` containing the six deployed website page URLs.
 - Opened the sitemap locally in Microsoft Edge and confirmed it displayed without XML parsing errors.
 - Verified that robots.txt and sitemap.xml load on the deployed Netlify website.
+- Resized and compressed the NovaTech logo to reduce its download size.
+- Added explicit width and height attributes to the logo on all six pages to reduce layout shifts (`12d2a15`).
+- Tested the deployed website with Google PageSpeed Insights. Both mobile and desktop achieved 100 for Performance, Accessibility, Best Practices and SEO.
 
 #### Enquiry Form
 - Improved form controls, autofill attributes, input limits,
