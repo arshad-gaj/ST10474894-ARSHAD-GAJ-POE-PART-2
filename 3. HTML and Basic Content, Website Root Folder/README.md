@@ -193,6 +193,7 @@ Implementation details and commit references are recorded below.
 - Added `robots.txt` to allow crawling and point to the sitemap.
 - Added `sitemap.xml` containing the six deployed website page URLs.
 - Opened the sitemap locally in Microsoft Edge and confirmed it displayed without XML parsing errors.
+- Verified that robots.txt and sitemap.xml load on the deployed Netlify website.
 
 #### Enquiry Form
 - Improved form controls, autofill attributes, input limits,
